@@ -1,7 +1,6 @@
 import Foundation
 import NIOHTTP1
 
-
 extension HTTPMethod {
     
     var description: String {

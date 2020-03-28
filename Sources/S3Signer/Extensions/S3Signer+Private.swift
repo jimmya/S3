@@ -1,8 +1,6 @@
 import Foundation
-import OpenCrypto
+import CryptoKit
 import NIOHTTP1
-import HTTPMediaTypes
-
 
 /// Private interface
 extension S3Signer {
