@@ -1,6 +1,7 @@
 import Foundation
 import CryptoKit
 import NIOHTTP1
+import Vapor
 
 /// Private interface
 extension S3Signer {
@@ -53,7 +54,7 @@ extension S3Signer {
         let dateRegionServiceKey = HMAC<SHA256>.signature(config.service, key: dateRegionKey)
         let signingKey = HMAC<SHA256>.signature("aws4_request", key: dateRegionServiceKey)
         let signature = HMAC<SHA256>.signature(stringToSign, key: signingKey)
-        return signature.description
+        return signature.data.hexEncodedString()
     }
     
     func createStringToSign(_ canonicalRequest: String, dates: Dates, region: Region) throws -> String {
