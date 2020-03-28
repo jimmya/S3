@@ -58,7 +58,7 @@ extension S3Signer {
     }
     
     func createStringToSign(_ canonicalRequest: String, dates: Dates, region: Region) throws -> String {
-        let canonRequestHash = SHA256.hash(data: canonicalRequest.bytes).description
+        let canonRequestHash = SHA256.hash(data: canonicalRequest.bytes).hexEncodedString()
         let components = [
             "AWS4-HMAC-SHA256",
             dates.long,
