@@ -1,5 +1,5 @@
 import Foundation
-import CryptoKit
+import Vapor
 
 /// Payload object
 public enum Payload {
